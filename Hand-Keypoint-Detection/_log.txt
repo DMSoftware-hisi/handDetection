@@ -1,0 +1,1959 @@
+I1001 19:07:56.683692  5070 caffe.cpp:210] Use CPU.
+I1001 19:07:56.684305  5070 solver.cpp:63] Initializing solver from parameters: 
+train_net: "/home/zouyao/Documents/caffe-train-ssd/Hand-Keypoint-Detection/model/train.prototxt"
+base_lr: 0.0001
+display: 10
+max_iter: 120000
+lr_policy: "multistep"
+gamma: 0.1
+momentum: 0.9
+weight_decay: 0.0005
+snapshot: 80000
+snapshot_prefix: "/home/zouyao/Documents/caffe-train-ssd/Hand-Keypoint-Detection/model/snapshot/VGG_HAND_SSD_300x300_iter_"
+solver_mode: CPU
+device_id: 0
+debug_info: false
+train_state {
+  level: 0
+  stage: ""
+}
+snapshot_after_train: true
+average_loss: 10
+stepvalue: 80000
+stepvalue: 100000
+stepvalue: 120000
+iter_size: 200000
+type: "SGD"
+I1001 19:07:56.685155  5070 solver.cpp:96] Creating training net from train_net file: /home/zouyao/Documents/caffe-train-ssd/Hand-Keypoint-Detection/model/train.prototxt
+I1001 19:07:56.691771  5070 net.cpp:58] Initializing net from parameters: 
+name: "VGG_HAND_SSD_300x300_train"
+state {
+  phase: TRAIN
+  level: 0
+  stage: ""
+}
+layer {
+  name: "data"
+  type: "AnnotatedData"
+  top: "data"
+  top: "label"
+  include {
+    phase: TRAIN
+  }
+  transform_param {
+    mirror: true
+    mean_value: 127
+    mean_value: 127
+    mean_value: 127
+    resize_param {
+      prob: 1
+      resize_mode: WARP
+      height: 300
+      width: 300
+      interp_mode: LINEAR
+      interp_mode: AREA
+      interp_mode: NEAREST
+      interp_mode: CUBIC
+      interp_mode: LANCZOS4
+    }
+    emit_constraint {
+      emit_type: CENTER
+    }
+    distort_param {
+      brightness_prob: 0.5
+      brightness_delta: 32
+      contrast_prob: 0.5
+      contrast_lower: 0.5
+      contrast_upper: 1.5
+      hue_prob: 0.5
+      hue_delta: 18
+      saturation_prob: 0.5
+      saturation_lower: 0.5
+      saturation_upper: 1.5
+      random_order_prob: 0
+    }
+    expand_param {
+      prob: 0.5
+      max_expand_ratio: 4
+    }
+  }
+  data_param {
+    source: "/home/zouyao/Documents/caffe-train-ssd/Hand-Keypoint-Detection/data/lmdb/trainval_lmdb"
+    batch_size: 2
+    backend: LMDB
+  }
+  annotated_data_param {
+    batch_sampler {
+      max_sample: 1
+      max_trials: 1
+    }
+    batch_sampler {
+      sampler {
+        min_scale: 0.3
+        max_scale: 1
+        min_aspect_ratio: 0.5
+        max_aspect_ratio: 2
+      }
+      sample_constraint {
+        min_jaccard_overlap: 0.1
+      }
+      max_sample: 1
+      max_trials: 50
+    }
+    batch_sampler {
+      sampler {
+        min_scale: 0.3
+        max_scale: 1
+        min_aspect_ratio: 0.5
+        max_aspect_ratio: 2
+      }
+      sample_constraint {
+        min_jaccard_overlap: 0.3
+      }
+      max_sample: 1
+      max_trials: 50
+    }
+    batch_sampler {
+      sampler {
+        min_scale: 0.3
+        max_scale: 1
+        min_aspect_ratio: 0.5
+        max_aspect_ratio: 2
+      }
+      sample_constraint {
+        min_jaccard_overlap: 0.5
+      }
+      max_sample: 1
+      max_trials: 50
+    }
+    batch_sampler {
+      sampler {
+        min_scale: 0.3
+        max_scale: 1
+        min_aspect_ratio: 0.5
+        max_aspect_ratio: 2
+      }
+      sample_constraint {
+        min_jaccard_overlap: 0.7
+      }
+      max_sample: 1
+      max_trials: 50
+    }
+    batch_sampler {
+      sampler {
+        min_scale: 0.3
+        max_scale: 1
+        min_aspect_ratio: 0.5
+        max_aspect_ratio: 2
+      }
+      sample_constraint {
+        min_jaccard_overlap: 0.9
+      }
+      max_sample: 1
+      max_trials: 50
+    }
+    batch_sampler {
+      sampler {
+        min_scale: 0.3
+        max_scale: 1
+        min_aspect_ratio: 0.5
+        max_aspect_ratio: 2
+      }
+      sample_constraint {
+        max_jaccard_overlap: 1
+      }
+      max_sample: 1
+      max_trials: 50
+    }
+    label_map_file: "/home/zouyao/Documents/caffe-train-ssd/Hand-Keypoint-Detection/data/labelmap_voc.prototxt"
+  }
+}
+layer {
+  name: "conv1_1"
+  type: "Convolution"
+  bottom: "data"
+  top: "conv1_1"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  param {
+    lr_mult: 2
+    decay_mult: 0
+  }
+  convolution_param {
+    num_output: 64
+    pad: 1
+    kernel_size: 3
+    weight_filler {
+      type: "xavier"
+    }
+    bias_filler {
+      type: "constant"
+      value: 0
+    }
+  }
+}
+layer {
+  name: "relu1_1"
+  type: "ReLU"
+  bottom: "conv1_1"
+  top: "conv1_1"
+}
+layer {
+  name: "conv1_2"
+  type: "Convolution"
+  bottom: "conv1_1"
+  top: "conv1_2"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  param {
+    lr_mult: 2
+    decay_mult: 0
+  }
+  convolution_param {
+    num_output: 64
+    pad: 1
+    kernel_size: 3
+    weight_filler {
+      type: "xavier"
+    }
+    bias_filler {
+      type: "constant"
+      value: 0
+    }
+  }
+}
+layer {
+  name: "relu1_2"
+  type: "ReLU"
+  bottom: "conv1_2"
+  top: "conv1_2"
+}
+layer {
+  name: "pool1"
+  type: "Pooling"
+  bottom: "conv1_2"
+  top: "pool1"
+  pooling_param {
+    pool: MAX
+    kernel_size: 2
+    stride: 2
+  }
+}
+layer {
+  name: "conv2_1"
+  type: "Convolution"
+  bottom: "pool1"
+  top: "conv2_1"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  param {
+    lr_mult: 2
+    decay_mult: 0
+  }
+  convolution_param {
+    num_output: 128
+    pad: 1
+    kernel_size: 3
+    weight_filler {
+      type: "xavier"
+    }
+    bias_filler {
+      type: "constant"
+      value: 0
+    }
+  }
+}
+layer {
+  name: "relu2_1"
+  type: "ReLU"
+  bottom: "conv2_1"
+  top: "conv2_1"
+}
+layer {
+  name: "conv2_2"
+  type: "Convolution"
+  bottom: "conv2_1"
+  top: "conv2_2"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  param {
+    lr_mult: 2
+    decay_mult: 0
+  }
+  convolution_param {
+    num_output: 128
+    pad: 1
+    kernel_size: 3
+    weight_filler {
+      type: "xavier"
+    }
+    bias_filler {
+      type: "constant"
+      value: 0
+    }
+  }
+}
+layer {
+  name: "relu2_2"
+  type: "ReLU"
+  bottom: "conv2_2"
+  top: "conv2_2"
+}
+layer {
+  name: "pool2"
+  type: "Pooling"
+  bottom: "conv2_2"
+  top: "pool2"
+  pooling_param {
+    pool: MAX
+    kernel_size: 2
+    stride: 2
+  }
+}
+layer {
+  name: "conv3_1"
+  type: "Convolution"
+  bottom: "pool2"
+  top: "conv3_1"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  param {
+    lr_mult: 2
+    decay_mult: 0
+  }
+  convolution_param {
+    num_output: 256
+    pad: 1
+    kernel_size: 3
+    weight_filler {
+      type: "xavier"
+    }
+    bias_filler {
+      type: "constant"
+      value: 0
+    }
+  }
+}
+layer {
+  name: "relu3_1"
+  type: "ReLU"
+  bottom: "conv3_1"
+  top: "conv3_1"
+}
+layer {
+  name: "conv3_2"
+  type: "Convolution"
+  bottom: "conv3_1"
+  top: "conv3_2"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  param {
+    lr_mult: 2
+    decay_mult: 0
+  }
+  convolution_param {
+    num_output: 256
+    pad: 1
+    kernel_size: 3
+    weight_filler {
+      type: "xavier"
+    }
+    bias_filler {
+      type: "constant"
+      value: 0
+    }
+  }
+}
+layer {
+  name: "relu3_2"
+  type: "ReLU"
+  bottom: "conv3_2"
+  top: "conv3_2"
+}
+layer {
+  name: "conv3_3"
+  type: "Convolution"
+  bottom: "conv3_2"
+  top: "conv3_3"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  param {
+    lr_mult: 2
+    decay_mult: 0
+  }
+  convolution_param {
+    num_output: 256
+    pad: 1
+    kernel_size: 3
+    weight_filler {
+      type: "xavier"
+    }
+    bias_filler {
+      type: "constant"
+      value: 0
+    }
+  }
+}
+layer {
+  name: "relu3_3"
+  type: "ReLU"
+  bottom: "conv3_3"
+  top: "conv3_3"
+}
+layer {
+  name: "pool3"
+  type: "Pooling"
+  bottom: "conv3_3"
+  top: "pool3"
+  pooling_param {
+    pool: MAX
+    kernel_size: 2
+    stride: 2
+  }
+}
+layer {
+  name: "conv4_1"
+  type: "Convolution"
+  bottom: "pool3"
+  top: "conv4_1"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  param {
+    lr_mult: 2
+    decay_mult: 0
+  }
+  convolution_param {
+    num_output: 512
+    pad: 1
+    kernel_size: 3
+    weight_filler {
+      type: "xavier"
+    }
+    bias_filler {
+      type: "constant"
+      value: 0
+    }
+  }
+}
+layer {
+  name: "relu4_1"
+  type: "ReLU"
+  bottom: "conv4_1"
+  top: "conv4_1"
+}
+layer {
+  name: "conv4_2"
+  type: "Convolution"
+  bottom: "conv4_1"
+  top: "conv4_2"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  param {
+    lr_mult: 2
+    decay_mult: 0
+  }
+  convolution_param {
+    num_output: 512
+    pad: 1
+    kernel_size: 3
+    weight_filler {
+      type: "xavier"
+    }
+    bias_filler {
+      type: "constant"
+      value: 0
+    }
+  }
+}
+layer {
+  name: "relu4_2"
+  type: "ReLU"
+  bottom: "conv4_2"
+  top: "conv4_2"
+}
+layer {
+  name: "conv4_3"
+  type: "Convolution"
+  bottom: "conv4_2"
+  top: "conv4_3"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  param {
+    lr_mult: 2
+    decay_mult: 0
+  }
+  convolution_param {
+    num_output: 512
+    pad: 1
+    kernel_size: 3
+    weight_filler {
+      type: "xavier"
+    }
+    bias_filler {
+      type: "constant"
+      value: 0
+    }
+  }
+}
+layer {
+  name: "relu4_3"
+  type: "ReLU"
+  bottom: "conv4_3"
+  top: "conv4_3"
+}
+layer {
+  name: "pool4"
+  type: "Pooling"
+  bottom: "conv4_3"
+  top: "pool4"
+  pooling_param {
+    pool: MAX
+    kernel_size: 2
+    stride: 2
+  }
+}
+layer {
+  name: "conv5_1"
+  type: "Convolution"
+  bottom: "pool4"
+  top: "conv5_1"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  param {
+    lr_mult: 2
+    decay_mult: 0
+  }
+  convolution_param {
+    num_output: 512
+    pad: 1
+    kernel_size: 3
+    weight_filler {
+      type: "xavier"
+    }
+    bias_filler {
+      type: "constant"
+      value: 0
+    }
+    dilation: 1
+  }
+}
+layer {
+  name: "relu5_1"
+  type: "ReLU"
+  bottom: "conv5_1"
+  top: "conv5_1"
+}
+layer {
+  name: "conv5_2"
+  type: "Convolution"
+  bottom: "conv5_1"
+  top: "conv5_2"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  param {
+    lr_mult: 2
+    decay_mult: 0
+  }
+  convolution_param {
+    num_output: 512
+    pad: 1
+    kernel_size: 3
+    weight_filler {
+      type: "xavier"
+    }
+    bias_filler {
+      type: "constant"
+      value: 0
+    }
+    dilation: 1
+  }
+}
+layer {
+  name: "relu5_2"
+  type: "ReLU"
+  bottom: "conv5_2"
+  top: "conv5_2"
+}
+layer {
+  name: "conv5_3"
+  type: "Convolution"
+  bottom: "conv5_2"
+  top: "conv5_3"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  param {
+    lr_mult: 2
+    decay_mult: 0
+  }
+  convolution_param {
+    num_output: 512
+    pad: 1
+    kernel_size: 3
+    weight_filler {
+      type: "xavier"
+    }
+    bias_filler {
+      type: "constant"
+      value: 0
+    }
+    dilation: 1
+  }
+}
+layer {
+  name: "relu5_3"
+  type: "ReLU"
+  bottom: "conv5_3"
+  top: "conv5_3"
+}
+layer {
+  name: "pool5"
+  type: "Pooling"
+  bottom: "conv5_3"
+  top: "pool5"
+  pooling_param {
+    pool: MAX
+    kernel_size: 3
+    stride: 1
+    pad: 1
+  }
+}
+layer {
+  name: "fc6"
+  type: "Convolution"
+  bottom: "pool5"
+  top: "fc6"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  param {
+    lr_mult: 2
+    decay_mult: 0
+  }
+  convolution_param {
+    num_output: 1024
+    pad: 6
+    kernel_size: 3
+    weight_filler {
+      type: "xavier"
+    }
+    bias_filler {
+      type: "constant"
+      value: 0
+    }
+    dilation: 6
+  }
+}
+layer {
+  name: "relu6"
+  type: "ReLU"
+  bottom: "fc6"
+  top: "fc6"
+}
+layer {
+  name: "fc7"
+  type: "Convolution"
+  bottom: "fc6"
+  top: "fc7"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  param {
+    lr_mult: 2
+    decay_mult: 0
+  }
+  convolution_param {
+    num_output: 1024
+    kernel_size: 1
+    weight_filler {
+      type: "xavier"
+    }
+    bias_filler {
+      type: "constant"
+      value: 0
+    }
+  }
+}
+layer {
+  name: "relu7"
+  type: "ReLU"
+  bottom: "fc7"
+  top: "fc7"
+}
+layer {
+  name: "conv6_1"
+  type: "Convolution"
+  bottom: "fc7"
+  top: "conv6_1"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  param {
+    lr_mult: 2
+    decay_mult: 0
+  }
+  convolution_param {
+    num_output: 256
+    pad: 0
+    kernel_size: 1
+    stride: 1
+    weight_filler {
+      type: "xavier"
+    }
+    bias_filler {
+      type: "constant"
+      value: 0
+    }
+  }
+}
+layer {
+  name: "conv6_1_relu"
+  type: "ReLU"
+  bottom: "conv6_1"
+  top: "conv6_1"
+}
+layer {
+  name: "conv6_2"
+  type: "Convolution"
+  bottom: "conv6_1"
+  top: "conv6_2"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  param {
+    lr_mult: 2
+    decay_mult: 0
+  }
+  convolution_param {
+    num_output: 512
+    pad: 1
+    kernel_size: 3
+    stride: 2
+    weight_filler {
+      type: "xavier"
+    }
+    bias_filler {
+      type: "constant"
+      value: 0
+    }
+  }
+}
+layer {
+  name: "conv6_2_relu"
+  type: "ReLU"
+  bottom: "conv6_2"
+  top: "conv6_2"
+}
+layer {
+  name: "conv7_1"
+  type: "Convolution"
+  bottom: "conv6_2"
+  top: "conv7_1"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  param {
+    lr_mult: 2
+    decay_mult: 0
+  }
+  convolution_param {
+    num_output: 128
+    pad: 0
+    kernel_size: 1
+    stride: 1
+    weight_filler {
+      type: "xavier"
+    }
+    bias_filler {
+      type: "constant"
+      value: 0
+    }
+  }
+}
+layer {
+  name: "conv7_1_relu"
+  type: "ReLU"
+  bottom: "conv7_1"
+  top: "conv7_1"
+}
+layer {
+  name: "conv7_2"
+  type: "Convolution"
+  bottom: "conv7_1"
+  top: "conv7_2"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  param {
+    lr_mult: 2
+    decay_mult: 0
+  }
+  convolution_param {
+    num_output: 256
+    pad: 1
+    kernel_size: 3
+    stride: 2
+    weight_filler {
+      type: "xavier"
+    }
+    bias_filler {
+      type: "constant"
+      value: 0
+    }
+  }
+}
+layer {
+  name: "conv7_2_relu"
+  type: "ReLU"
+  bottom: "conv7_2"
+  top: "conv7_2"
+}
+layer {
+  name: "conv8_1"
+  type: "Convolution"
+  bottom: "conv7_2"
+  top: "conv8_1"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  param {
+    lr_mult: 2
+    decay_mult: 0
+  }
+  convolution_param {
+    num_output: 128
+    pad: 0
+    kernel_size: 1
+    stride: 1
+    weight_filler {
+      type: "xavier"
+    }
+    bias_filler {
+      type: "constant"
+      value: 0
+    }
+  }
+}
+layer {
+  name: "conv8_1_relu"
+  type: "ReLU"
+  bottom: "conv8_1"
+  top: "conv8_1"
+}
+layer {
+  name: "conv8_2"
+  type: "Convolution"
+  bottom: "conv8_1"
+  top: "conv8_2"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  param {
+    lr_mult: 2
+    decay_mult: 0
+  }
+  convolution_param {
+    num_output: 256
+    pad: 0
+    kernel_size: 3
+    stride: 1
+    weight_filler {
+      type: "xavier"
+    }
+    bias_filler {
+      type: "constant"
+      value: 0
+    }
+  }
+}
+layer {
+  name: "conv8_2_relu"
+  type: "ReLU"
+  bottom: "conv8_2"
+  top: "conv8_2"
+}
+layer {
+  name: "conv9_1"
+  type: "Convolution"
+  bottom: "conv8_2"
+  top: "conv9_1"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  param {
+    lr_mult: 2
+    decay_mult: 0
+  }
+  convolution_param {
+    num_output: 128
+    pad: 0
+    kernel_size: 1
+    stride: 1
+    weight_filler {
+      type: "xavier"
+    }
+    bias_filler {
+      type: "constant"
+      value: 0
+    }
+  }
+}
+layer {
+  name: "conv9_1_relu"
+  type: "ReLU"
+  bottom: "conv9_1"
+  top: "conv9_1"
+}
+layer {
+  name: "conv9_2"
+  type: "Convolution"
+  bottom: "conv9_1"
+  top: "conv9_2"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  param {
+    lr_mult: 2
+    decay_mult: 0
+  }
+  convolution_param {
+    num_output: 256
+    pad: 0
+    kernel_size: 3
+    stride: 1
+    weight_filler {
+      type: "xavier"
+    }
+    bias_filler {
+      type: "constant"
+      value: 0
+    }
+  }
+}
+layer {
+  name: "conv9_2_relu"
+  type: "ReLU"
+  bottom: "conv9_2"
+  top: "conv9_2"
+}
+layer {
+  name: "conv4_3_norm"
+  type: "Normalize"
+  bottom: "conv4_3"
+  top: "conv4_3_norm"
+  norm_param {
+    across_spatial: false
+    scale_filler {
+      type: "constant"
+      value: 20
+    }
+    channel_shared: false
+  }
+}
+layer {
+  name: "conv4_3_norm_mbox_loc"
+  type: "Convolution"
+  bottom: "conv4_3_norm"
+  top: "conv4_3_norm_mbox_loc"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  param {
+    lr_mult: 2
+    decay_mult: 0
+  }
+  convolution_param {
+    num_output: 16
+    pad: 1
+    kernel_size: 3
+    stride: 1
+    weight_filler {
+      type: "xavier"
+    }
+    bias_filler {
+      type: "constant"
+      value: 0
+    }
+  }
+}
+layer {
+  name: "conv4_3_norm_mbox_loc_perm"
+  type: "Permute"
+  bottom: "conv4_3_norm_mbox_loc"
+  top: "conv4_3_norm_mbox_loc_perm"
+  permute_param {
+    order: 0
+    order: 2
+    order: 3
+    order: 1
+  }
+}
+layer {
+  name: "conv4_3_norm_mbox_loc_flat"
+  type: "Flatten"
+  bottom: "conv4_3_norm_mbox_loc_perm"
+  top: "conv4_3_norm_mbox_loc_flat"
+  flatten_param {
+    axis: 1
+  }
+}
+layer {
+  name: "conv4_3_norm_mbox_conf_hand_detection"
+  type: "Convolution"
+  bottom: "conv4_3_norm"
+  top: "conv4_3_norm_mbox_conf_hand_detection"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  param {
+    lr_mult: 2
+    decay_mult: 0
+  }
+  convolution_param {
+    num_output: 8
+    pad: 1
+    kernel_size: 3
+    stride: 1
+    weight_filler {
+      type: "xavier"
+    }
+    bias_filler {
+      type: "constant"
+      value: 0
+    }
+  }
+}
+layer {
+  name: "conv4_3_norm_mbox_conf_hand_detection_perm"
+  type: "Permute"
+  bottom: "conv4_3_norm_mbox_conf_hand_detection"
+  top: "conv4_3_norm_mbox_conf_hand_detection_perm"
+  permute_param {
+    order: 0
+    order: 2
+    order: 3
+    order: 1
+  }
+}
+layer {
+  name: "conv4_3_norm_mbox_conf_hand_detection_flat"
+  type: "Flatten"
+  bottom: "conv4_3_norm_mbox_conf_hand_detection_perm"
+  top: "conv4_3_norm_mbox_conf_hand_detection_flat"
+  flatten_param {
+    axis: 1
+  }
+}
+layer {
+  name: "conv4_3_norm_mbox_priorbox"
+  type: "PriorBox"
+  bottom: "conv4_3_norm"
+  bottom: "data"
+  top: "conv4_3_norm_mbox_priorbox"
+  prior_box_param {
+    min_size: 30
+    max_size: 60
+    aspect_ratio: 2
+    flip: true
+    clip: false
+    variance: 0.1
+    variance: 0.1
+    variance: 0.2
+    variance: 0.2
+    step: 8
+    offset: 0.5
+  }
+}
+layer {
+  name: "fc7_mbox_loc"
+  type: "Convolution"
+  bottom: "fc7"
+  top: "fc7_mbox_loc"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  param {
+    lr_mult: 2
+    decay_mult: 0
+  }
+  convolution_param {
+    num_output: 24
+    pad: 1
+    kernel_size: 3
+    stride: 1
+    weight_filler {
+      type: "xavier"
+    }
+    bias_filler {
+      type: "constant"
+      value: 0
+    }
+  }
+}
+layer {
+  name: "fc7_mbox_loc_perm"
+  type: "Permute"
+  bottom: "fc7_mbox_loc"
+  top: "fc7_mbox_loc_perm"
+  permute_param {
+    order: 0
+    order: 2
+    order: 3
+    order: 1
+  }
+}
+layer {
+  name: "fc7_mbox_loc_flat"
+  type: "Flatten"
+  bottom: "fc7_mbox_loc_perm"
+  top: "fc7_mbox_loc_flat"
+  flatten_param {
+    axis: 1
+  }
+}
+layer {
+  name: "fc7_mbox_conf_hand_detection"
+  type: "Convolution"
+  bottom: "fc7"
+  top: "fc7_mbox_conf_hand_detection"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  param {
+    lr_mult: 2
+    decay_mult: 0
+  }
+  convolution_param {
+    num_output: 12
+    pad: 1
+    kernel_size: 3
+    stride: 1
+    weight_filler {
+      type: "xavier"
+    }
+    bias_filler {
+      type: "constant"
+      value: 0
+    }
+  }
+}
+layer {
+  name: "fc7_mbox_conf_hand_detection_perm"
+  type: "Permute"
+  bottom: "fc7_mbox_conf_hand_detection"
+  top: "fc7_mbox_conf_hand_detection_perm"
+  permute_param {
+    order: 0
+    order: 2
+    order: 3
+    order: 1
+  }
+}
+layer {
+  name: "fc7_mbox_conf_hand_detection_flat"
+  type: "Flatten"
+  bottom: "fc7_mbox_conf_hand_detection_perm"
+  top: "fc7_mbox_conf_hand_detection_flat"
+  flatten_param {
+    axis: 1
+  }
+}
+layer {
+  name: "fc7_mbox_priorbox"
+  type: "PriorBox"
+  bottom: "fc7"
+  bottom: "data"
+  top: "fc7_mbox_priorbox"
+  prior_box_param {
+    min_size: 60
+    max_size: 111
+    aspect_ratio: 2
+    aspect_ratio: 3
+    flip: true
+    clip: false
+    variance: 0.1
+    variance: 0.1
+    variance: 0.2
+    variance: 0.2
+    step: 16
+    offset: 0.5
+  }
+}
+layer {
+  name: "conv6_2_mbox_loc"
+  type: "Convolution"
+  bottom: "conv6_2"
+  top: "conv6_2_mbox_loc"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  param {
+    lr_mult: 2
+    decay_mult: 0
+  }
+  convolution_param {
+    num_output: 24
+    pad: 1
+    kernel_size: 3
+    stride: 1
+    weight_filler {
+      type: "xavier"
+    }
+    bias_filler {
+      type: "constant"
+      value: 0
+    }
+  }
+}
+layer {
+  name: "conv6_2_mbox_loc_perm"
+  type: "Permute"
+  bottom: "conv6_2_mbox_loc"
+  top: "conv6_2_mbox_loc_perm"
+  permute_param {
+    order: 0
+    order: 2
+    order: 3
+    order: 1
+  }
+}
+layer {
+  name: "conv6_2_mbox_loc_flat"
+  type: "Flatten"
+  bottom: "conv6_2_mbox_loc_perm"
+  top: "conv6_2_mbox_loc_flat"
+  flatten_param {
+    axis: 1
+  }
+}
+layer {
+  name: "conv6_2_mbox_conf_hand_detection"
+  type: "Convolution"
+  bottom: "conv6_2"
+  top: "conv6_2_mbox_conf_hand_detection"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  param {
+    lr_mult: 2
+    decay_mult: 0
+  }
+  convolution_param {
+    num_output: 12
+    pad: 1
+    kernel_size: 3
+    stride: 1
+    weight_filler {
+      type: "xavier"
+    }
+    bias_filler {
+      type: "constant"
+      value: 0
+    }
+  }
+}
+layer {
+  name: "conv6_2_mbox_conf_hand_detection_perm"
+  type: "Permute"
+  bottom: "conv6_2_mbox_conf_hand_detection"
+  top: "conv6_2_mbox_conf_hand_detection_perm"
+  permute_param {
+    order: 0
+    order: 2
+    order: 3
+    order: 1
+  }
+}
+layer {
+  name: "conv6_2_mbox_conf_hand_detection_flat"
+  type: "Flatten"
+  bottom: "conv6_2_mbox_conf_hand_detection_perm"
+  top: "conv6_2_mbox_conf_hand_detection_flat"
+  flatten_param {
+    axis: 1
+  }
+}
+layer {
+  name: "conv6_2_mbox_priorbox"
+  type: "PriorBox"
+  bottom: "conv6_2"
+  bottom: "data"
+  top: "conv6_2_mbox_priorbox"
+  prior_box_param {
+    min_size: 111
+    max_size: 162
+    aspect_ratio: 2
+    aspect_ratio: 3
+    flip: true
+    clip: false
+    variance: 0.1
+    variance: 0.1
+    variance: 0.2
+    variance: 0.2
+    step: 32
+    offset: 0.5
+  }
+}
+layer {
+  name: "conv7_2_mbox_loc"
+  type: "Convolution"
+  bottom: "conv7_2"
+  top: "conv7_2_mbox_loc"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  param {
+    lr_mult: 2
+    decay_mult: 0
+  }
+  convolution_param {
+    num_output: 24
+    pad: 1
+    kernel_size: 3
+    stride: 1
+    weight_filler {
+      type: "xavier"
+    }
+    bias_filler {
+      type: "constant"
+      value: 0
+    }
+  }
+}
+layer {
+  name: "conv7_2_mbox_loc_perm"
+  type: "Permute"
+  bottom: "conv7_2_mbox_loc"
+  top: "conv7_2_mbox_loc_perm"
+  permute_param {
+    order: 0
+    order: 2
+    order: 3
+    order: 1
+  }
+}
+layer {
+  name: "conv7_2_mbox_loc_flat"
+  type: "Flatten"
+  bottom: "conv7_2_mbox_loc_perm"
+  top: "conv7_2_mbox_loc_flat"
+  flatten_param {
+    axis: 1
+  }
+}
+layer {
+  name: "conv7_2_mbox_conf_hand_detection"
+  type: "Convolution"
+  bottom: "conv7_2"
+  top: "conv7_2_mbox_conf_hand_detection"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  param {
+    lr_mult: 2
+    decay_mult: 0
+  }
+  convolution_param {
+    num_output: 12
+    pad: 1
+    kernel_size: 3
+    stride: 1
+    weight_filler {
+      type: "xavier"
+    }
+    bias_filler {
+      type: "constant"
+      value: 0
+    }
+  }
+}
+layer {
+  name: "conv7_2_mbox_conf_hand_detection_perm"
+  type: "Permute"
+  bottom: "conv7_2_mbox_conf_hand_detection"
+  top: "conv7_2_mbox_conf_hand_detection_perm"
+  permute_param {
+    order: 0
+    order: 2
+    order: 3
+    order: 1
+  }
+}
+layer {
+  name: "conv7_2_mbox_conf_hand_detection_flat"
+  type: "Flatten"
+  bottom: "conv7_2_mbox_conf_hand_detection_perm"
+  top: "conv7_2_mbox_conf_hand_detection_flat"
+  flatten_param {
+    axis: 1
+  }
+}
+layer {
+  name: "conv7_2_mbox_priorbox"
+  type: "PriorBox"
+  bottom: "conv7_2"
+  bottom: "data"
+  top: "conv7_2_mbox_priorbox"
+  prior_box_param {
+    min_size: 162
+    max_size: 213
+    aspect_ratio: 2
+    aspect_ratio: 3
+    flip: true
+    clip: false
+    variance: 0.1
+    variance: 0.1
+    variance: 0.2
+    variance: 0.2
+    step: 64
+    offset: 0.5
+  }
+}
+layer {
+  name: "conv8_2_mbox_loc"
+  type: "Convolution"
+  bottom: "conv8_2"
+  top: "conv8_2_mbox_loc"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  param {
+    lr_mult: 2
+    decay_mult: 0
+  }
+  convolution_param {
+    num_output: 16
+    pad: 1
+    kernel_size: 3
+    stride: 1
+    weight_filler {
+      type: "xavier"
+    }
+    bias_filler {
+      type: "constant"
+      value: 0
+    }
+  }
+}
+layer {
+  name: "conv8_2_mbox_loc_perm"
+  type: "Permute"
+  bottom: "conv8_2_mbox_loc"
+  top: "conv8_2_mbox_loc_perm"
+  permute_param {
+    order: 0
+    order: 2
+    order: 3
+    order: 1
+  }
+}
+layer {
+  name: "conv8_2_mbox_loc_flat"
+  type: "Flatten"
+  bottom: "conv8_2_mbox_loc_perm"
+  top: "conv8_2_mbox_loc_flat"
+  flatten_param {
+    axis: 1
+  }
+}
+layer {
+  name: "conv8_2_mbox_conf_hand_detection"
+  type: "Convolution"
+  bottom: "conv8_2"
+  top: "conv8_2_mbox_conf_hand_detection"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  param {
+    lr_mult: 2
+    decay_mult: 0
+  }
+  convolution_param {
+    num_output: 8
+    pad: 1
+    kernel_size: 3
+    stride: 1
+    weight_filler {
+      type: "xavier"
+    }
+    bias_filler {
+      type: "constant"
+      value: 0
+    }
+  }
+}
+layer {
+  name: "conv8_2_mbox_conf_hand_detection_perm"
+  type: "Permute"
+  bottom: "conv8_2_mbox_conf_hand_detection"
+  top: "conv8_2_mbox_conf_hand_detection_perm"
+  permute_param {
+    order: 0
+    order: 2
+    order: 3
+    order: 1
+  }
+}
+layer {
+  name: "conv8_2_mbox_conf_hand_detection_flat"
+  type: "Flatten"
+  bottom: "conv8_2_mbox_conf_hand_detection_perm"
+  top: "conv8_2_mbox_conf_hand_detection_flat"
+  flatten_param {
+    axis: 1
+  }
+}
+layer {
+  name: "conv8_2_mbox_priorbox"
+  type: "PriorBox"
+  bottom: "conv8_2"
+  bottom: "data"
+  top: "conv8_2_mbox_priorbox"
+  prior_box_param {
+    min_size: 213
+    max_size: 264
+    aspect_ratio: 2
+    flip: true
+    clip: false
+    variance: 0.1
+    variance: 0.1
+    variance: 0.2
+    variance: 0.2
+    step: 100
+    offset: 0.5
+  }
+}
+layer {
+  name: "conv9_2_mbox_loc"
+  type: "Convolution"
+  bottom: "conv9_2"
+  top: "conv9_2_mbox_loc"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  param {
+    lr_mult: 2
+    decay_mult: 0
+  }
+  convolution_param {
+    num_output: 16
+    pad: 1
+    kernel_size: 3
+    stride: 1
+    weight_filler {
+      type: "xavier"
+    }
+    bias_filler {
+      type: "constant"
+      value: 0
+    }
+  }
+}
+layer {
+  name: "conv9_2_mbox_loc_perm"
+  type: "Permute"
+  bottom: "conv9_2_mbox_loc"
+  top: "conv9_2_mbox_loc_perm"
+  permute_param {
+    order: 0
+    order: 2
+    order: 3
+    order: 1
+  }
+}
+layer {
+  name: "conv9_2_mbox_loc_flat"
+  type: "Flatten"
+  bottom: "conv9_2_mbox_loc_perm"
+  top: "conv9_2_mbox_loc_flat"
+  flatten_param {
+    axis: 1
+  }
+}
+layer {
+  name: "conv9_2_mbox_conf_hand_detection"
+  type: "Convolution"
+  bottom: "conv9_2"
+  top: "conv9_2_mbox_conf_hand_detection"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  param {
+    lr_mult: 2
+    decay_mult: 0
+  }
+  convolution_param {
+    num_output: 8
+    pad: 1
+    kernel_size: 3
+    stride: 1
+    weight_filler {
+      type: "xavier"
+    }
+    bias_filler {
+      type: "constant"
+      value: 0
+    }
+  }
+}
+layer {
+  name: "conv9_2_mbox_conf_hand_detection_perm"
+  type: "Permute"
+  bottom: "conv9_2_mbox_conf_hand_detection"
+  top: "conv9_2_mbox_conf_hand_detection_perm"
+  permute_param {
+    order: 0
+    order: 2
+    order: 3
+    order: 1
+  }
+}
+layer {
+  name: "conv9_2_mbox_conf_hand_detection_flat"
+  type: "Flatten"
+  bottom: "conv9_2_mbox_conf_hand_detection_perm"
+  top: "conv9_2_mbox_conf_hand_detection_flat"
+  flatten_param {
+    axis: 1
+  }
+}
+layer {
+  name: "conv9_2_mbox_priorbox"
+  type: "PriorBox"
+  bottom: "conv9_2"
+  bottom: "data"
+  top: "conv9_2_mbox_priorbox"
+  prior_box_param {
+    min_size: 264
+    max_size: 315
+    aspect_ratio: 2
+    flip: true
+    clip: false
+    variance: 0.1
+    variance: 0.1
+    variance: 0.2
+    variance: 0.2
+    step: 300
+    offset: 0.5
+  }
+}
+layer {
+  name: "mbox_loc"
+  type: "Concat"
+  bottom: "conv4_3_norm_mbox_loc_flat"
+  bottom: "fc7_mbox_loc_flat"
+  bottom: "conv6_2_mbox_loc_flat"
+  bottom: "conv7_2_mbox_loc_flat"
+  bottom: "conv8_2_mbox_loc_flat"
+  bottom: "conv9_2_mbox_loc_flat"
+  top: "mbox_loc"
+  concat_param {
+    axis: 1
+  }
+}
+layer {
+  name: "mbox_conf"
+  type: "Concat"
+  bottom: "conv4_3_norm_mbox_conf_hand_detection_flat"
+  bottom: "fc7_mbox_conf_hand_detection_flat"
+  bottom: "conv6_2_mbox_conf_hand_detection_flat"
+  bottom: "conv7_2_mbox_conf_hand_detection_flat"
+  bottom: "conv8_2_mbox_conf_hand_detection_flat"
+  bottom: "conv9_2_mbox_conf_hand_detection_flat"
+  top: "mbox_conf"
+  concat_param {
+    axis: 1
+  }
+}
+layer {
+  name: "mbox_priorbox"
+  type: "Concat"
+  bottom: "conv4_3_norm_mbox_priorbox"
+  bottom: "fc7_mbox_priorbox"
+  bottom: "conv6_2_mbox_priorbox"
+  bottom: "conv7_2_mbox_priorbox"
+  bottom: "conv8_2_mbox_priorbox"
+  bottom: "conv9_2_mbox_priorbox"
+  top: "mbox_priorbox"
+  concat_param {
+    axis: 2
+  }
+}
+layer {
+  name: "mbox_loss"
+  type: "MultiBoxLoss"
+  bottom: "mbox_loc"
+  bottom: "mbox_conf"
+  bottom: "mbox_priorbox"
+  bottom: "label"
+  top: "mbox_loss"
+  include {
+    phase: TRAIN
+  }
+  propagate_down: true
+  propagate_down: true
+  propagate_down: false
+  propagate_down: false
+  loss_param {
+    normalization: VALID
+  }
+  multibox_loss_param {
+    loc_loss_type: SMOOTH_L1
+    conf_loss_type: SOFTMAX
+    loc_weight: 1
+    num_classes: 2
+    share_location: true
+    match_type: PER_PREDICTION
+    overlap_threshold: 0.5
+    use_prior_for_matching: true
+    background_label_id: 0
+    use_difficult_gt: true
+    neg_pos_ratio: 3
+    neg_overlap: 0.5
+    code_type: CENTER_SIZE
+    ignore_cross_boundary_bbox: false
+    mining_type: MAX_NEGATIVE
+  }
+}
+I1001 19:07:56.705752  5070 layer_factory.hpp:77] Creating layer data
+I1001 19:07:56.706869  5070 net.cpp:100] Creating Layer data
+I1001 19:07:56.707005  5070 net.cpp:408] data -> data
+I1001 19:07:56.708426  5070 net.cpp:408] data -> label
+I1001 19:07:56.708680  5078 db_lmdb.cpp:35] Opened lmdb /home/zouyao/Documents/caffe-train-ssd/Hand-Keypoint-Detection/data/lmdb/trainval_lmdb
+I1001 19:07:56.741001  5070 annotated_data_layer.cpp:62] output data size: 2,3,300,300
+I1001 19:07:56.741405  5070 net.cpp:150] Setting up data
+I1001 19:07:56.741474  5070 net.cpp:157] Top shape: 2 3 300 300 (540000)
+I1001 19:07:56.741516  5070 net.cpp:157] Top shape: 1 1 4 8 (32)
+I1001 19:07:56.741551  5070 net.cpp:165] Memory required for data: 2160128
+I1001 19:07:56.741593  5070 layer_factory.hpp:77] Creating layer data_data_0_split
+I1001 19:07:56.741639  5070 net.cpp:100] Creating Layer data_data_0_split
+I1001 19:07:56.741677  5070 net.cpp:434] data_data_0_split <- data
+I1001 19:07:56.741720  5070 net.cpp:408] data_data_0_split -> data_data_0_split_0
+I1001 19:07:56.741763  5070 net.cpp:408] data_data_0_split -> data_data_0_split_1
+I1001 19:07:56.741801  5070 net.cpp:408] data_data_0_split -> data_data_0_split_2
+I1001 19:07:56.741840  5070 net.cpp:408] data_data_0_split -> data_data_0_split_3
+I1001 19:07:56.741878  5070 net.cpp:408] data_data_0_split -> data_data_0_split_4
+I1001 19:07:56.741915  5070 net.cpp:408] data_data_0_split -> data_data_0_split_5
+I1001 19:07:56.741952  5070 net.cpp:408] data_data_0_split -> data_data_0_split_6
+I1001 19:07:56.741992  5070 net.cpp:150] Setting up data_data_0_split
+I1001 19:07:56.742028  5070 net.cpp:157] Top shape: 2 3 300 300 (540000)
+I1001 19:07:56.742064  5070 net.cpp:157] Top shape: 2 3 300 300 (540000)
+I1001 19:07:56.742100  5070 net.cpp:157] Top shape: 2 3 300 300 (540000)
+I1001 19:07:56.742134  5070 net.cpp:157] Top shape: 2 3 300 300 (540000)
+I1001 19:07:56.742168  5070 net.cpp:157] Top shape: 2 3 300 300 (540000)
+I1001 19:07:56.742203  5070 net.cpp:157] Top shape: 2 3 300 300 (540000)
+I1001 19:07:56.742238  5070 net.cpp:157] Top shape: 2 3 300 300 (540000)
+I1001 19:07:56.742417  5070 net.cpp:165] Memory required for data: 17280128
+I1001 19:07:56.742460  5070 layer_factory.hpp:77] Creating layer conv1_1
+I1001 19:07:56.742506  5070 net.cpp:100] Creating Layer conv1_1
+I1001 19:07:56.742543  5070 net.cpp:434] conv1_1 <- data_data_0_split_0
+I1001 19:07:56.742580  5070 net.cpp:408] conv1_1 -> conv1_1
+I1001 19:07:56.743114  5070 net.cpp:150] Setting up conv1_1
+I1001 19:07:56.743124  5070 net.cpp:157] Top shape: 2 64 300 300 (11520000)
+I1001 19:07:56.743127  5070 net.cpp:165] Memory required for data: 63360128
+I1001 19:07:56.743141  5070 layer_factory.hpp:77] Creating layer relu1_1
+I1001 19:07:56.743145  5070 net.cpp:100] Creating Layer relu1_1
+I1001 19:07:56.743149  5070 net.cpp:434] relu1_1 <- conv1_1
+I1001 19:07:56.743151  5070 net.cpp:395] relu1_1 -> conv1_1 (in-place)
+I1001 19:07:56.743156  5070 net.cpp:150] Setting up relu1_1
+I1001 19:07:56.743158  5070 net.cpp:157] Top shape: 2 64 300 300 (11520000)
+I1001 19:07:56.743161  5070 net.cpp:165] Memory required for data: 109440128
+I1001 19:07:56.743163  5070 layer_factory.hpp:77] Creating layer conv1_2
+I1001 19:07:56.743171  5070 net.cpp:100] Creating Layer conv1_2
+I1001 19:07:56.743175  5070 net.cpp:434] conv1_2 <- conv1_1
+I1001 19:07:56.743177  5070 net.cpp:408] conv1_2 -> conv1_2
+I1001 19:07:56.744038  5070 net.cpp:150] Setting up conv1_2
+I1001 19:07:56.744046  5070 net.cpp:157] Top shape: 2 64 300 300 (11520000)
+I1001 19:07:56.744050  5070 net.cpp:165] Memory required for data: 155520128
+I1001 19:07:56.744056  5070 layer_factory.hpp:77] Creating layer relu1_2
+I1001 19:07:56.744060  5070 net.cpp:100] Creating Layer relu1_2
+I1001 19:07:56.744062  5070 net.cpp:434] relu1_2 <- conv1_2
+I1001 19:07:56.744067  5070 net.cpp:395] relu1_2 -> conv1_2 (in-place)
+I1001 19:07:56.744071  5070 net.cpp:150] Setting up relu1_2
+I1001 19:07:56.744073  5070 net.cpp:157] Top shape: 2 64 300 300 (11520000)
+I1001 19:07:56.744110  5070 net.cpp:165] Memory required for data: 201600128
+I1001 19:07:56.744112  5070 layer_factory.hpp:77] Creating layer pool1
+I1001 19:07:56.744117  5070 net.cpp:100] Creating Layer pool1
+I1001 19:07:56.744118  5070 net.cpp:434] pool1 <- conv1_2
+I1001 19:07:56.744122  5070 net.cpp:408] pool1 -> pool1
+I1001 19:07:56.744132  5070 net.cpp:150] Setting up pool1
+I1001 19:07:56.744133  5070 net.cpp:157] Top shape: 2 64 150 150 (2880000)
+I1001 19:07:56.744136  5070 net.cpp:165] Memory required for data: 213120128
+I1001 19:07:56.744138  5070 layer_factory.hpp:77] Creating layer conv2_1
+I1001 19:07:56.744143  5070 net.cpp:100] Creating Layer conv2_1
+I1001 19:07:56.744145  5070 net.cpp:434] conv2_1 <- pool1
+I1001 19:07:56.744148  5070 net.cpp:408] conv2_1 -> conv2_1
+I1001 19:07:56.745077  5070 net.cpp:150] Setting up conv2_1
+I1001 19:07:56.745087  5070 net.cpp:157] Top shape: 2 128 150 150 (5760000)
+I1001 19:07:56.745091  5070 net.cpp:165] Memory required for data: 236160128
+I1001 19:07:56.745098  5070 layer_factory.hpp:77] Creating layer relu2_1
+I1001 19:07:56.745103  5070 net.cpp:100] Creating Layer relu2_1
+I1001 19:07:56.745106  5070 net.cpp:434] relu2_1 <- conv2_1
+I1001 19:07:56.745110  5070 net.cpp:395] relu2_1 -> conv2_1 (in-place)
+I1001 19:07:56.745115  5070 net.cpp:150] Setting up relu2_1
+I1001 19:07:56.745116  5070 net.cpp:157] Top shape: 2 128 150 150 (5760000)
+I1001 19:07:56.745119  5070 net.cpp:165] Memory required for data: 259200128
+I1001 19:07:56.745121  5070 layer_factory.hpp:77] Creating layer conv2_2
+I1001 19:07:56.745126  5070 net.cpp:100] Creating Layer conv2_2
+I1001 19:07:56.745128  5070 net.cpp:434] conv2_2 <- conv2_1
+I1001 19:07:56.745132  5070 net.cpp:408] conv2_2 -> conv2_2
+I1001 19:07:56.752383  5070 net.cpp:150] Setting up conv2_2
+I1001 19:07:56.752465  5070 net.cpp:157] Top shape: 2 128 150 150 (5760000)
+I1001 19:07:56.752595  5070 net.cpp:165] Memory required for data: 282240128
+I1001 19:07:56.752643  5070 layer_factory.hpp:77] Creating layer relu2_2
+I1001 19:07:56.752689  5070 net.cpp:100] Creating Layer relu2_2
+I1001 19:07:56.752729  5070 net.cpp:434] relu2_2 <- conv2_2
+I1001 19:07:56.752771  5070 net.cpp:395] relu2_2 -> conv2_2 (in-place)
+I1001 19:07:56.752816  5070 net.cpp:150] Setting up relu2_2
+I1001 19:07:56.752856  5070 net.cpp:157] Top shape: 2 128 150 150 (5760000)
+I1001 19:07:56.752895  5070 net.cpp:165] Memory required for data: 305280128
+I1001 19:07:56.752933  5070 layer_factory.hpp:77] Creating layer pool2
+I1001 19:07:56.752974  5070 net.cpp:100] Creating Layer pool2
+I1001 19:07:56.753013  5070 net.cpp:434] pool2 <- conv2_2
+I1001 19:07:56.753054  5070 net.cpp:408] pool2 -> pool2
+I1001 19:07:56.753098  5070 net.cpp:150] Setting up pool2
+I1001 19:07:56.753137  5070 net.cpp:157] Top shape: 2 128 75 75 (1440000)
+I1001 19:07:56.753177  5070 net.cpp:165] Memory required for data: 311040128
+I1001 19:07:56.753216  5070 layer_factory.hpp:77] Creating layer conv3_1
+I1001 19:07:56.753301  5070 net.cpp:100] Creating Layer conv3_1
+I1001 19:07:56.753345  5070 net.cpp:434] conv3_1 <- pool2
+I1001 19:07:56.753386  5070 net.cpp:408] conv3_1 -> conv3_1
+I1001 19:07:56.755439  5070 net.cpp:150] Setting up conv3_1
+I1001 19:07:56.762195  5070 net.cpp:157] Top shape: 2 256 75 75 (2880000)
+I1001 19:07:56.762373  5070 net.cpp:165] Memory required for data: 322560128
+I1001 19:07:56.762428  5070 layer_factory.hpp:77] Creating layer relu3_1
+I1001 19:07:56.762472  5070 net.cpp:100] Creating Layer relu3_1
+I1001 19:07:56.762509  5070 net.cpp:434] relu3_1 <- conv3_1
+I1001 19:07:56.762548  5070 net.cpp:395] relu3_1 -> conv3_1 (in-place)
+I1001 19:07:56.762591  5070 net.cpp:150] Setting up relu3_1
+I1001 19:07:56.762626  5070 net.cpp:157] Top shape: 2 256 75 75 (2880000)
+I1001 19:07:56.762663  5070 net.cpp:165] Memory required for data: 334080128
+I1001 19:07:56.762698  5070 layer_factory.hpp:77] Creating layer conv3_2
+I1001 19:07:56.762780  5070 net.cpp:100] Creating Layer conv3_2
+I1001 19:07:56.762850  5070 net.cpp:434] conv3_2 <- conv3_1
+I1001 19:07:56.762905  5070 net.cpp:408] conv3_2 -> conv3_2
+I1001 19:07:56.767685  5070 net.cpp:150] Setting up conv3_2
+I1001 19:07:56.769304  5070 net.cpp:157] Top shape: 2 256 75 75 (2880000)
+I1001 19:07:56.769492  5070 net.cpp:165] Memory required for data: 345600128
+I1001 19:07:56.769603  5070 layer_factory.hpp:77] Creating layer relu3_2
+I1001 19:07:56.769680  5070 net.cpp:100] Creating Layer relu3_2
+I1001 19:07:56.769737  5070 net.cpp:434] relu3_2 <- conv3_2
+I1001 19:07:56.769821  5070 net.cpp:395] relu3_2 -> conv3_2 (in-place)
+I1001 19:07:56.769906  5070 net.cpp:150] Setting up relu3_2
+I1001 19:07:56.769985  5070 net.cpp:157] Top shape: 2 256 75 75 (2880000)
+I1001 19:07:56.770022  5070 net.cpp:165] Memory required for data: 357120128
+I1001 19:07:56.770097  5070 layer_factory.hpp:77] Creating layer conv3_3
+I1001 19:07:56.770143  5070 net.cpp:100] Creating Layer conv3_3
+I1001 19:07:56.770267  5070 net.cpp:434] conv3_3 <- conv3_2
+I1001 19:07:56.770365  5070 net.cpp:408] conv3_3 -> conv3_3
+I1001 19:07:56.776031  5070 net.cpp:150] Setting up conv3_3
+I1001 19:07:56.781237  5070 net.cpp:157] Top shape: 2 256 75 75 (2880000)
+I1001 19:07:56.781361  5070 net.cpp:165] Memory required for data: 368640128
+I1001 19:07:56.781409  5070 layer_factory.hpp:77] Creating layer relu3_3
+I1001 19:07:56.781450  5070 net.cpp:100] Creating Layer relu3_3
+I1001 19:07:56.781487  5070 net.cpp:434] relu3_3 <- conv3_3
+I1001 19:07:56.781527  5070 net.cpp:395] relu3_3 -> conv3_3 (in-place)
+I1001 19:07:56.781569  5070 net.cpp:150] Setting up relu3_3
+I1001 19:07:56.781605  5070 net.cpp:157] Top shape: 2 256 75 75 (2880000)
+I1001 19:07:56.781641  5070 net.cpp:165] Memory required for data: 380160128
+I1001 19:07:56.781675  5070 layer_factory.hpp:77] Creating layer pool3
+I1001 19:07:56.781718  5070 net.cpp:100] Creating Layer pool3
+I1001 19:07:56.781754  5070 net.cpp:434] pool3 <- conv3_3
+I1001 19:07:56.781791  5070 net.cpp:408] pool3 -> pool3
+I1001 19:07:56.781833  5070 net.cpp:150] Setting up pool3
+I1001 19:07:56.781869  5070 net.cpp:157] Top shape: 2 256 38 38 (739328)
+I1001 19:07:56.781905  5070 net.cpp:165] Memory required for data: 383117440
+I1001 19:07:56.781939  5070 layer_factory.hpp:77] Creating layer conv4_1
+I1001 19:07:56.781980  5070 net.cpp:100] Creating Layer conv4_1
+I1001 19:07:56.782016  5070 net.cpp:434] conv4_1 <- pool3
+I1001 19:07:56.782054  5070 net.cpp:408] conv4_1 -> conv4_1
+I1001 19:07:56.802757  5070 net.cpp:150] Setting up conv4_1
+I1001 19:07:56.802906  5070 net.cpp:157] Top shape: 2 512 38 38 (1478656)
+I1001 19:07:56.802949  5070 net.cpp:165] Memory required for data: 389032064
+I1001 19:07:56.802991  5070 layer_factory.hpp:77] Creating layer relu4_1
+I1001 19:07:56.803033  5070 net.cpp:100] Creating Layer relu4_1
+I1001 19:07:56.803071  5070 net.cpp:434] relu4_1 <- conv4_1
+I1001 19:07:56.803172  5070 net.cpp:395] relu4_1 -> conv4_1 (in-place)
+I1001 19:07:56.803241  5070 net.cpp:150] Setting up relu4_1
+I1001 19:07:56.803274  5070 net.cpp:157] Top shape: 2 512 38 38 (1478656)
+I1001 19:07:56.803309  5070 net.cpp:165] Memory required for data: 394946688
+I1001 19:07:56.803344  5070 layer_factory.hpp:77] Creating layer conv4_2
+I1001 19:07:56.803385  5070 net.cpp:100] Creating Layer conv4_2
+I1001 19:07:56.803418  5070 net.cpp:434] conv4_2 <- conv4_1
+I1001 19:07:56.803453  5070 net.cpp:408] conv4_2 -> conv4_2
+F1001 19:07:56.831708  5079 math_functions.cpp:250] Check failed: a <= b (0 vs. -1.19209e-07) 
+*** Check failure stack trace: ***
+    @     0x7f2d8f8ae0cd  google::LogMessage::Fail()
+    @     0x7f2d8f8aff33  google::LogMessage::SendToLog()
+    @     0x7f2d8f8adc28  google::LogMessage::Flush()
+    @     0x7f2d8f8b0999  google::LogMessageFatal::~LogMessageFatal()
+I1001 19:07:56.838156  5070 net.cpp:150] Setting up conv4_2
+I1001 19:07:56.850699  5070 net.cpp:157] Top shape: 2 512 38 38 (1478656)
+I1001 19:07:56.850745  5070 net.cpp:165] Memory required for data: 400861312
+I1001 19:07:56.850791  5070 layer_factory.hpp:77] Creating layer relu4_2
+I1001 19:07:56.850832  5070 net.cpp:100] Creating Layer relu4_2
+I1001 19:07:56.850924  5070 net.cpp:434] relu4_2 <- conv4_2
+I1001 19:07:56.851033  5070 net.cpp:395] relu4_2 -> conv4_2 (in-place)
+I1001 19:07:56.851079  5070 net.cpp:150] Setting up relu4_2
+I1001 19:07:56.851115  5070 net.cpp:157] Top shape: 2 512 38 38 (1478656)
+I1001 19:07:56.851151  5070 net.cpp:165] Memory required for data: 406775936
+I1001 19:07:56.851186  5070 layer_factory.hpp:77] Creating layer conv4_3
+I1001 19:07:56.851233  5070 net.cpp:100] Creating Layer conv4_3
+I1001 19:07:56.851270  5070 net.cpp:434] conv4_3 <- conv4_2
+I1001 19:07:56.851307  5070 net.cpp:408] conv4_3 -> conv4_3
+    @     0x7f2d8fee0bb7  caffe::caffe_rng_uniform<>()
+    @     0x7f2d8feb7d18  caffe::SampleBBox()
+    @     0x7f2d8feb8070  caffe::GenerateSamples()
+    @     0x7f2d8feb82c0  caffe::GenerateBatchSamples()
+    @     0x7f2d8fe1cb92  caffe::AnnotatedDataLayer<>::load_batch()
+    @     0x7f2d8fd9aa4a  caffe::BasePrefetchingDataLayer<>::InternalThreadEntry()
+    @     0x7f2d8ba78bcd  (unknown)
+    @     0x7f2d8b28f6db  start_thread
+    @     0x7f2d8dec4a3f  clone
