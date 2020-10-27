@@ -6,7 +6,7 @@ import cv2
 import shutil
 import tqdm
 
-data_root = '/home/zouyao/Documents/caffe-train-ssd/Hand-Keypoint-Detection/data/egohands/_LABELLED_SAMPLES'
+data_root = 'E:/gitresp/handDetection/Hand-Keypoint-Detection/data/egohands/_LABELLED_SAMPLES'
 with open("egohands_data.txt") as f:
     data = f.readlines()
 
