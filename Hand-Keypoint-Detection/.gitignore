@@ -5,8 +5,6 @@
 *.caffemodel
 *.solverstate
 /data/egohands/lmdb/
-/data/stanfordhands/test/
-/data/stanfordhands/trainval/
 /data/lmdb/
 /data/test.txt
 /data/trainval.txt
