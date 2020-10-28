@@ -1,0 +1,30 @@
+<annotation>
+  <folder>egohands</folder>
+  <filename>PUZZLE_LIVINGROOM_S_H_1368</filename>
+  <size>
+    <width>1280</width>
+    <height>720</height>
+    <depth>3</depth>
+  </size>
+  <segmented>0</segmented>
+  <object>
+    <name>hand</name>
+    <difficult>0</difficult>
+    <bndbox>
+      <xmin>723</xmin>
+      <ymin>459</ymin>
+      <xmax>1187</xmax>
+      <ymax>719</ymax>
+    </bndbox>
+  </object>
+  <object>
+    <name>hand</name>
+    <difficult>0</difficult>
+    <bndbox>
+      <xmin>572</xmin>
+      <ymin>15</ymin>
+      <xmax>788</xmax>
+      <ymax>174</ymax>
+    </bndbox>
+  </object>
+</annotation>
