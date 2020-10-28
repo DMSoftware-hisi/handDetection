@@ -1,0 +1,30 @@
+<annotation>
+  <folder>egohands</folder>
+  <filename>CHESS_OFFICE_T_H_0374</filename>
+  <size>
+    <width>1280</width>
+    <height>720</height>
+    <depth>3</depth>
+  </size>
+  <segmented>0</segmented>
+  <object>
+    <name>hand</name>
+    <difficult>0</difficult>
+    <bndbox>
+      <xmin>608</xmin>
+      <ymin>178</ymin>
+      <xmax>660</xmax>
+      <ymax>245</ymax>
+    </bndbox>
+  </object>
+  <object>
+    <name>hand</name>
+    <difficult>0</difficult>
+    <bndbox>
+      <xmin>462</xmin>
+      <ymin>132</ymin>
+      <xmax>624</xmax>
+      <ymax>314</ymax>
+    </bndbox>
+  </object>
+</annotation>

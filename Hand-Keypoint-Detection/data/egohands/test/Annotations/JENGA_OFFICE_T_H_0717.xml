@@ -1,0 +1,30 @@
+<annotation>
+  <folder>egohands</folder>
+  <filename>JENGA_OFFICE_T_H_0717</filename>
+  <size>
+    <width>1280</width>
+    <height>720</height>
+    <depth>3</depth>
+  </size>
+  <segmented>0</segmented>
+  <object>
+    <name>hand</name>
+    <difficult>0</difficult>
+    <bndbox>
+      <xmin>583</xmin>
+      <ymin>515</ymin>
+      <xmax>727</xmax>
+      <ymax>688</ymax>
+    </bndbox>
+  </object>
+  <object>
+    <name>hand</name>
+    <difficult>0</difficult>
+    <bndbox>
+      <xmin>70</xmin>
+      <ymin>301</ymin>
+      <xmax>260</xmax>
+      <ymax>511</ymax>
+    </bndbox>
+  </object>
+</annotation>

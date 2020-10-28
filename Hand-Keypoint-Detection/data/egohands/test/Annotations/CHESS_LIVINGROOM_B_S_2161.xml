@@ -1,0 +1,30 @@
+<annotation>
+  <folder>egohands</folder>
+  <filename>CHESS_LIVINGROOM_B_S_2161</filename>
+  <size>
+    <width>1280</width>
+    <height>720</height>
+    <depth>3</depth>
+  </size>
+  <segmented>0</segmented>
+  <object>
+    <name>hand</name>
+    <difficult>0</difficult>
+    <bndbox>
+      <xmin>575</xmin>
+      <ymin>378</ymin>
+      <xmax>819</xmax>
+      <ymax>703</ymax>
+    </bndbox>
+  </object>
+  <object>
+    <name>hand</name>
+    <difficult>0</difficult>
+    <bndbox>
+      <xmin>6</xmin>
+      <ymin>489</ymin>
+      <xmax>232</xmax>
+      <ymax>719</ymax>
+    </bndbox>
+  </object>
+</annotation>

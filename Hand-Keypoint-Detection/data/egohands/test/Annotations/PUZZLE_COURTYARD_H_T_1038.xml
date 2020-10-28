@@ -1,0 +1,30 @@
+<annotation>
+  <folder>egohands</folder>
+  <filename>PUZZLE_COURTYARD_H_T_1038</filename>
+  <size>
+    <width>1280</width>
+    <height>720</height>
+    <depth>3</depth>
+  </size>
+  <segmented>0</segmented>
+  <object>
+    <name>hand</name>
+    <difficult>0</difficult>
+    <bndbox>
+      <xmin>590</xmin>
+      <ymin>460</ymin>
+      <xmax>803</xmax>
+      <ymax>576</ymax>
+    </bndbox>
+  </object>
+  <object>
+    <name>hand</name>
+    <difficult>0</difficult>
+    <bndbox>
+      <xmin>414</xmin>
+      <ymin>426</ymin>
+      <xmax>582</xmax>
+      <ymax>583</ymax>
+    </bndbox>
+  </object>
+</annotation>

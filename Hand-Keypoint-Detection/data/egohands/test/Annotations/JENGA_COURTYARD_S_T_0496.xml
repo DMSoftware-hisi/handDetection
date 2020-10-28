@@ -1,0 +1,30 @@
+<annotation>
+  <folder>egohands</folder>
+  <filename>JENGA_COURTYARD_S_T_0496</filename>
+  <size>
+    <width>1280</width>
+    <height>720</height>
+    <depth>3</depth>
+  </size>
+  <segmented>0</segmented>
+  <object>
+    <name>hand</name>
+    <difficult>0</difficult>
+    <bndbox>
+      <xmin>298</xmin>
+      <ymin>585</ymin>
+      <xmax>435</xmax>
+      <ymax>717</ymax>
+    </bndbox>
+  </object>
+  <object>
+    <name>hand</name>
+    <difficult>0</difficult>
+    <bndbox>
+      <xmin>376</xmin>
+      <ymin>377</ymin>
+      <xmax>419</xmax>
+      <ymax>465</ymax>
+    </bndbox>
+  </object>
+</annotation>

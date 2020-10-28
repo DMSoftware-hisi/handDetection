@@ -1,0 +1,20 @@
+<annotation>
+  <folder>egohands</folder>
+  <filename>PUZZLE_LIVINGROOM_H_S_2531</filename>
+  <size>
+    <width>1280</width>
+    <height>720</height>
+    <depth>3</depth>
+  </size>
+  <segmented>0</segmented>
+  <object>
+    <name>hand</name>
+    <difficult>0</difficult>
+    <bndbox>
+      <xmin>167</xmin>
+      <ymin>366</ymin>
+      <xmax>393</xmax>
+      <ymax>720</ymax>
+    </bndbox>
+  </object>
+</annotation>

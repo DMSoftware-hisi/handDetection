@@ -1,0 +1,20 @@
+<annotation>
+  <folder>egohands</folder>
+  <filename>JENGA_LIVINGROOM_T_S_2362</filename>
+  <size>
+    <width>1280</width>
+    <height>720</height>
+    <depth>3</depth>
+  </size>
+  <segmented>0</segmented>
+  <object>
+    <name>hand</name>
+    <difficult>0</difficult>
+    <bndbox>
+      <xmin>661</xmin>
+      <ymin>212</ymin>
+      <xmax>853</xmax>
+      <ymax>464</ymax>
+    </bndbox>
+  </object>
+</annotation>
