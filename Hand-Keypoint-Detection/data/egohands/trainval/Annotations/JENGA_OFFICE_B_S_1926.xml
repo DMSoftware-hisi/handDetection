@@ -1,0 +1,20 @@
+<annotation>
+  <folder>egohands</folder>
+  <filename>JENGA_OFFICE_B_S_1926</filename>
+  <size>
+    <width>1280</width>
+    <height>720</height>
+    <depth>3</depth>
+  </size>
+  <segmented>0</segmented>
+  <object>
+    <name>hand</name>
+    <difficult>0</difficult>
+    <bndbox>
+      <xmin>566</xmin>
+      <ymin>399</ymin>
+      <xmax>735</xmax>
+      <ymax>541</ymax>
+    </bndbox>
+  </object>
+</annotation>
