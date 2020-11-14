@@ -1,0 +1,30 @@
+item {
+  name: "none_of_the_above"
+  label: 0
+  display_name: "background"
+}
+item {
+  name: "blink"
+  label: 1
+  display_name: "blink"
+}
+item {
+  name: "eye"
+  label: 2
+  display_name: "eye"
+}
+item {
+  name: "glass"
+  label: 3
+  display_name: "glass"
+}
+item {
+  name: "mouth"
+  label: 4
+  display_name: "mouth"
+}
+item {
+  name: "yawn"
+  label: 5
+  display_name: "yawn"
+}
