@@ -1,0 +1,30 @@
+<annotation>
+	<folder>faceinfo</folder>
+	<filename>20200516_175026.120</filename>
+	<size>
+		<width>247</width>
+		<height>289</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>eye</name>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>27</xmin>
+			<ymin>81</ymin>
+			<xmax>81</xmax>
+			<ymax>113</ymax>
+		</bndbox>
+	</object>
+	<object>
+		<name>eye</name>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>143</xmin>
+			<ymin>61</ymin>
+			<xmax>198</xmax>
+			<ymax>96</ymax>
+		</bndbox>
+	</object>
+</annotation>

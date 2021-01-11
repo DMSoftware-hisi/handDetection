@@ -1,0 +1,20 @@
+<annotation>
+	<folder>faceinfo</folder>
+	<filename>20200721_190636.026</filename>
+	<size>
+		<width>224</width>
+		<height>295</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>yawn</name>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>75</xmin>
+			<ymin>157</ymin>
+			<xmax>163</xmax>
+			<ymax>258</ymax>
+		</bndbox>
+	</object>
+</annotation>
