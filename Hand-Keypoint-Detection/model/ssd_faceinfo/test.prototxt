@@ -22,12 +22,12 @@ layer {
     }
   }
   data_param {
-    source: "/content/pedestrainDataset/data/lmdb/test_lmdb/"
+    source: "/content/handDetection/Hand-Keypoint-Detection/data/lmdb/test_lmdb/"
     batch_size: 1
     backend: LMDB
   }
   annotated_data_param {
-    label_map_file: "/content/pedestrainDataset/data/labelmap_voc.prototxt"
+    label_map_file: "/content/handDetection/Hand-Keypoint-Detection/data/labelmap_faceinfo.prototxt"
   }
 }
 
