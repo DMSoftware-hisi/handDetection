@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <annotation>
 	<folder>egohands</folder>
 	<filename>20200724_174714.307</filename>
@@ -17,4 +18,25 @@
 			<ymax>527</ymax>
 		</bndbox>
 	</object>
+=======
+<annotation>
+	<folder>egohands</folder>
+	<filename>20200724_174714.307</filename>
+	<size>
+		<width>1280</width>
+		<height>720</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>hand</name>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>598</xmin>
+			<ymin>375</ymin>
+			<xmax>745</xmax>
+			<ymax>527</ymax>
+		</bndbox>
+	</object>
+>>>>>>> 544cbf95c5d4650d700dcec3ea07b2d97fe2edf8
 </annotation>
