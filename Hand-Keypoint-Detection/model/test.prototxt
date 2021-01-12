@@ -22,7 +22,7 @@ layer {
     }
   }
   data_param {
-    source: "/content/handDetection/Hand-Keypoint-Detection/data/lmbd/test_lmdb/"
+    source: "/content/handDetection/Hand-Keypoint-Detection/data/lmdb/test_lmdb/"
     batch_size: 1
     backend: LMDB
   }
@@ -1810,7 +1810,6 @@ layer {
     code_type: CENTER_SIZE
     keep_top_k: 200
     confidence_threshold: 0.01
-    clip: 1
   }
 }
 layer {
