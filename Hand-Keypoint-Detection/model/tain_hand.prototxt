@@ -44,7 +44,7 @@ layer {
     }
   }
   data_param {
-    source: "/content/handDetection/Hand-Keypoint-Detection/data/trainval_lmdb/"
+    source: "/content/handDetection/Hand-Keypoint-Detection/data/lmdb/trainval_lmdb/"
     batch_size: 16
     backend: LMDB
   }
