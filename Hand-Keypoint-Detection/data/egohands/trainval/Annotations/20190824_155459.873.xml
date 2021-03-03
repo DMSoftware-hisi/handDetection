@@ -1,0 +1,20 @@
+<annotation>
+	<folder>egohands</folder>
+	<filename>20190824_155459.873</filename>
+	<size>
+		<width>640</width>
+		<height>480</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>hand</name>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>252</xmin>
+			<ymin>315</ymin>
+			<xmax>402</xmax>
+			<ymax>478</ymax>
+		</bndbox>
+	</object>
+</annotation>

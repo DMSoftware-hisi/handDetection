@@ -1,0 +1,20 @@
+<annotation>
+	<folder>egohands</folder>
+	<filename>20200714_175817.340</filename>
+	<size>
+		<width>640</width>
+		<height>480</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>hand</name>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>436</xmin>
+			<ymin>248</ymin>
+			<xmax>559</xmax>
+			<ymax>435</ymax>
+		</bndbox>
+	</object>
+</annotation>

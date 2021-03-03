@@ -11,10 +11,10 @@
 		<name>hand</name>
 		<difficult>0</difficult>
 		<bndbox>
-			<xmin>284</xmin>
-			<ymin>236</ymin>
-			<xmax>400</xmax>
-			<ymax>366</ymax>
+			<xmin>262</xmin>
+			<ymin>232</ymin>
+			<xmax>401</xmax>
+			<ymax>394</ymax>
 		</bndbox>
 	</object>
 </annotation>

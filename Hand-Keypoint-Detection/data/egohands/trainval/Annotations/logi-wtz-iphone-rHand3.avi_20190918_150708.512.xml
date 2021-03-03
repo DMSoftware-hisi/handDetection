@@ -1,0 +1,20 @@
+<annotation>
+	<folder>egohands</folder>
+	<filename>logi-wtz-iphone-rHand3.avi_20190918_150708.512</filename>
+	<size>
+		<width>640</width>
+		<height>480</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>hand</name>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>116</xmin>
+			<ymin>245</ymin>
+			<xmax>215</xmax>
+			<ymax>383</ymax>
+		</bndbox>
+	</object>
+</annotation>
