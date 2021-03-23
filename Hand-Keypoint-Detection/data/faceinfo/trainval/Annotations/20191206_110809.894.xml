@@ -1,0 +1,30 @@
+<annotation>
+	<folder>faceinfo</folder>
+	<filename>20191206_110809.894</filename>
+	<size>
+		<width>202</width>
+		<height>261</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>glass</name>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>51</xmin>
+			<ymin>76</ymin>
+			<xmax>125</xmax>
+			<ymax>122</ymax>
+		</bndbox>
+	</object>
+	<object>
+		<name>mouth</name>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>105</xmin>
+			<ymin>178</ymin>
+			<xmax>171</xmax>
+			<ymax>216</ymax>
+		</bndbox>
+	</object>
+</annotation>

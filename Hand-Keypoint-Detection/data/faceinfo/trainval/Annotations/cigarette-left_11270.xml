@@ -1,0 +1,30 @@
+<annotation>
+	<folder>faceinfo</folder>
+	<filename>cigarette-left_11270</filename>
+	<size>
+		<width>249</width>
+		<height>273</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>glass</name>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>67</xmin>
+			<ymin>91</ymin>
+			<xmax>160</xmax>
+			<ymax>156</ymax>
+		</bndbox>
+	</object>
+	<object>
+		<name>glass</name>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>178</xmin>
+			<ymin>112</ymin>
+			<xmax>248</xmax>
+			<ymax>175</ymax>
+		</bndbox>
+	</object>
+</annotation>

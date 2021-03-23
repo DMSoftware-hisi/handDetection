@@ -1,0 +1,30 @@
+<annotation>
+	<folder>faceinfo</folder>
+	<filename>20200721_192258.527</filename>
+	<size>
+		<width>219</width>
+		<height>241</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>glass</name>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>34</xmin>
+			<ymin>60</ymin>
+			<xmax>128</xmax>
+			<ymax>117</ymax>
+		</bndbox>
+	</object>
+	<object>
+		<name>glass</name>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>145</xmin>
+			<ymin>77</ymin>
+			<xmax>219</xmax>
+			<ymax>132</ymax>
+		</bndbox>
+	</object>
+</annotation>

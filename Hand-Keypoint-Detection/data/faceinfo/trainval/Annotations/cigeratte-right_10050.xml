@@ -1,0 +1,30 @@
+<annotation>
+	<folder>faceinfo</folder>
+	<filename>cigeratte-right_10050</filename>
+	<size>
+		<width>233</width>
+		<height>281</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>glass</name>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>64</xmin>
+			<ymin>90</ymin>
+			<xmax>152</xmax>
+			<ymax>153</ymax>
+		</bndbox>
+	</object>
+	<object>
+		<name>glass</name>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>171</xmin>
+			<ymin>115</ymin>
+			<xmax>232</xmax>
+			<ymax>169</ymax>
+		</bndbox>
+	</object>
+</annotation>
