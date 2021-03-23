@@ -1,14 +1,20 @@
 <annotation>
-	<folder>faceinfo</folder>
-	<filename>20170920_225009.144</filename>
+	<folder>JPEGImages</folder>
+	<filename>20170920_225009.144.jpg</filename>
+	<path>F:\gitresp\handDetection\Hand-Keypoint-Detection\data\faceinfo\trainval\JPEGImages\20170920_225009.144.jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
 	<size>
 		<width>216</width>
 		<height>258</height>
-		<depth>3</depth>
+		<depth>1</depth>
 	</size>
 	<segmented>0</segmented>
 	<object>
 		<name>glass</name>
+		<pose>Unspecified</pose>
+		<truncated>1</truncated>
 		<difficult>0</difficult>
 		<bndbox>
 			<xmin>1</xmin>
@@ -19,6 +25,8 @@
 	</object>
 	<object>
 		<name>glass</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
 		<difficult>0</difficult>
 		<bndbox>
 			<xmin>85</xmin>
@@ -29,12 +37,26 @@
 	</object>
 	<object>
 		<name>mouth</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
 		<difficult>0</difficult>
 		<bndbox>
 			<xmin>56</xmin>
 			<ymin>187</ymin>
 			<xmax>130</xmax>
 			<ymax>219</ymax>
+		</bndbox>
+	</object>
+	<object>
+		<name>eye</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>20</xmin>
+			<ymin>92</ymin>
+			<xmax>63</xmax>
+			<ymax>119</ymax>
 		</bndbox>
 	</object>
 </annotation>

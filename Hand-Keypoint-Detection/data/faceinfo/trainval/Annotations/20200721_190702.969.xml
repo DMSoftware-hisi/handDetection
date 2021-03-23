@@ -1,20 +1,74 @@
 <annotation>
-	<folder>faceinfo</folder>
-	<filename>20200721_190702.969</filename>
+	<folder>JPEGImages</folder>
+	<filename>20200721_190702.969.jpg</filename>
+	<path>F:\gitresp\handDetection\Hand-Keypoint-Detection\data\faceinfo\trainval\JPEGImages\20200721_190702.969.jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
 	<size>
 		<width>220</width>
 		<height>295</height>
-		<depth>3</depth>
+		<depth>1</depth>
 	</size>
 	<segmented>0</segmented>
 	<object>
 		<name>yawn</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
 		<difficult>0</difficult>
 		<bndbox>
 			<xmin>83</xmin>
-			<ymin>169</ymin>
-			<xmax>169</xmax>
+			<ymin>160</ymin>
+			<xmax>171</xmax>
 			<ymax>270</ymax>
+		</bndbox>
+	</object>
+	<object>
+		<name>glass</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>34</xmin>
+			<ymin>58</ymin>
+			<xmax>137</xmax>
+			<ymax>124</ymax>
+		</bndbox>
+	</object>
+	<object>
+		<name>glass</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>154</xmin>
+			<ymin>85</ymin>
+			<xmax>212</xmax>
+			<ymax>140</ymax>
+		</bndbox>
+	</object>
+	<object>
+		<name>eye</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>168</xmin>
+			<ymin>98</ymin>
+			<xmax>202</xmax>
+			<ymax>123</ymax>
+		</bndbox>
+	</object>
+	<object>
+		<name>eye</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>67</xmin>
+			<ymin>79</ymin>
+			<xmax>102</xmax>
+			<ymax>102</ymax>
 		</bndbox>
 	</object>
 </annotation>

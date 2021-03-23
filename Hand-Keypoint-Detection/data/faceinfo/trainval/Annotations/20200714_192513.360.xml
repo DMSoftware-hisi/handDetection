@@ -1,20 +1,50 @@
 <annotation>
-	<folder>faceinfo</folder>
-	<filename>20200714_192513.360</filename>
+	<folder>JPEGImages</folder>
+	<filename>20200714_192513.360.jpg</filename>
+	<path>F:\gitresp\handDetection\Hand-Keypoint-Detection\data\faceinfo\trainval\JPEGImages\20200714_192513.360.jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
 	<size>
 		<width>147</width>
 		<height>194</height>
-		<depth>3</depth>
+		<depth>1</depth>
 	</size>
 	<segmented>0</segmented>
 	<object>
 		<name>yawn</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
 		<difficult>0</difficult>
 		<bndbox>
 			<xmin>22</xmin>
 			<ymin>116</ymin>
 			<xmax>71</xmax>
 			<ymax>164</ymax>
+		</bndbox>
+	</object>
+	<object>
+		<name>eye</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>69</xmin>
+			<ymin>54</ymin>
+			<xmax>105</xmax>
+			<ymax>75</ymax>
+		</bndbox>
+	</object>
+	<object>
+		<name>eye</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>8</xmin>
+			<ymin>59</ymin>
+			<xmax>38</xmax>
+			<ymax>80</ymax>
 		</bndbox>
 	</object>
 </annotation>
