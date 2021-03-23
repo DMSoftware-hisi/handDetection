@@ -1,14 +1,20 @@
 <annotation>
-	<folder>faceinfo</folder>
-	<filename>20191206_104102.240</filename>
+	<folder>image</folder>
+	<filename>20191206_104102.240.jpg</filename>
+	<path>F:\facedateset\wg\20210317\image\20191206_104102.240.jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
 	<size>
 		<width>207</width>
 		<height>255</height>
-		<depth>3</depth>
+		<depth>1</depth>
 	</size>
 	<segmented>0</segmented>
 	<object>
 		<name>glass</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
 		<difficult>0</difficult>
 		<bndbox>
 			<xmin>101</xmin>
@@ -19,6 +25,8 @@
 	</object>
 	<object>
 		<name>glass</name>
+		<pose>Unspecified</pose>
+		<truncated>1</truncated>
 		<difficult>0</difficult>
 		<bndbox>
 			<xmin>176</xmin>
@@ -29,12 +37,26 @@
 	</object>
 	<object>
 		<name>mouth</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
 		<difficult>0</difficult>
 		<bndbox>
 			<xmin>107</xmin>
 			<ymin>161</ymin>
 			<xmax>171</xmax>
 			<ymax>207</ymax>
+		</bndbox>
+	</object>
+	<object>
+		<name>blink</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>107</xmin>
+			<ymin>73</ymin>
+			<xmax>145</xmax>
+			<ymax>97</ymax>
 		</bndbox>
 	</object>
 </annotation>
