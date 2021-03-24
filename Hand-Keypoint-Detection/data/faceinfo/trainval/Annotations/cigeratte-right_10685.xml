@@ -18,7 +18,7 @@
 		</bndbox>
 	</object>
 	<object>
-		<name>chicken noodle soup</name>
+		<name>glass</name>
 		<difficult>0</difficult>
 		<bndbox>
 			<xmin>180</xmin>
