@@ -1,20 +1,14 @@
 <annotation>
-	<folder>image</folder>
-	<filename>20170920_224220.305.jpg</filename>
-	<path>F:\facedateset\wg\20210317\image\20170920_224220.305.jpg</path>
-	<source>
-		<database>Unknown</database>
-	</source>
+	<folder>faceinfo</folder>
+	<filename>20170920_224220.305</filename>
 	<size>
 		<width>202</width>
 		<height>268</height>
-		<depth>1</depth>
+		<depth>3</depth>
 	</size>
 	<segmented>0</segmented>
 	<object>
 		<name>glass</name>
-		<pose>Unspecified</pose>
-		<truncated>0</truncated>
 		<difficult>0</difficult>
 		<bndbox>
 			<xmin>7</xmin>
@@ -25,8 +19,6 @@
 	</object>
 	<object>
 		<name>glass</name>
-		<pose>Unspecified</pose>
-		<truncated>0</truncated>
 		<difficult>0</difficult>
 		<bndbox>
 			<xmin>107</xmin>
@@ -37,8 +29,6 @@
 	</object>
 	<object>
 		<name>mouth</name>
-		<pose>Unspecified</pose>
-		<truncated>0</truncated>
 		<difficult>0</difficult>
 		<bndbox>
 			<xmin>60</xmin>
@@ -49,8 +39,6 @@
 	</object>
 	<object>
 		<name>eye</name>
-		<pose>Unspecified</pose>
-		<truncated>0</truncated>
 		<difficult>0</difficult>
 		<bndbox>
 			<xmin>28</xmin>
@@ -61,8 +49,6 @@
 	</object>
 	<object>
 		<name>eye</name>
-		<pose>Unspecified</pose>
-		<truncated>0</truncated>
 		<difficult>0</difficult>
 		<bndbox>
 			<xmin>131</xmin>
